@@ -1,0 +1,23 @@
+TASK_TYPE: inference_ecg2cmr_entrance_generate
+use_fp16: True
+guide_scale: 9.0
+use_fp16: True
+chunk_size: 2
+decoder_bs: 2
+max_frames: 16
+target_fps: 16 
+scale: 8
+batch_size: 4
+use_zero_infer: True 
+# For important input
+ecgcmr_dataset: {
+    'type': 'ECGCMRDATASET',
+    'data_path': "/mnt/data2/ECG_CMR/val_data_dict_v8.pt",
+    'resizeshape': 256,
+}
+cmr_generate_save_path: /mnt/data2/dingzhengyao/work/checkpoint/ECG_CMR/diffusion/experiments/generate_cmr_data/val_data_dict_v8_gen.pt
+round: 4
+seed: 8888
+test_list_path: data/e2c_v5_generate.txt
+vldm_cfg: /home/dingzhengyao/Work/T2Vdiff/VGen/configs/e2c_train_v5.yaml
+test_model: /mnt/data2/dingzhengyao/work/checkpoint/ECG_CMR/diffusion/experiments/e2c_train_v5/checkpoints/non_ema_00281000.pth
