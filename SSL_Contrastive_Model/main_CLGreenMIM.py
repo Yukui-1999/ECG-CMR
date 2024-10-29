@@ -61,10 +61,6 @@ def get_args_parser():
                         default="/mnt/data2/ECG_CMR/toy_data/test_ECGlaCMR_data_dict_v11_toy.pt",
                         type=str,
                         help='dataset path')
-    parser.add_argument('--val_data_path',
-                        default="/mnt/data2/ECG_CMR/val_data_dict_v11.pt",
-                        type=str,
-                        help='validation dataset path')
     parser.add_argument('--test_data_path',
                         default="/mnt/data2/ECG_CMR/toy_data/test_ECGlaCMR_data_dict_v11_toy.pt",
                         type=str,

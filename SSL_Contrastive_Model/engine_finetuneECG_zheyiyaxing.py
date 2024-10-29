@@ -162,17 +162,5 @@ def evaluate(model: torch.nn.Module,
     metric_logger.synchronize_between_processes()
     print("validation stats:", metric_logger)
     test_stats = {k: meter.global_avg for k, meter in metric_logger.meters.items()}
-    if eval_criterion == 'loss':
-        pass
-    else:
-        if args.output_dir and test_stats[eval_criterion] >= best_stats[eval_criterion]:
-            test_folder = os.path.join(args.output_dir, 'test')
-            if os.path.exists(test_folder):
-                np.save(os.path.join(test_folder, 'best_pred.npy'), output)
-                np.save(os.path.join(test_folder,'label.npy'), label)
-            else:
-                os.makedirs(test_folder)
-                np.save(os.path.join(test_folder, 'best_pred.npy'), output)
-                np.save(os.path.join(test_folder,'label.npy'), label)
     
     return test_stats
