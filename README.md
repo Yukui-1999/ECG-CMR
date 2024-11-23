@@ -17,3 +17,14 @@ pip install -r ECG2CMR_DiffsionModel/requirements.txt
 ```
 ## Citation
 If you find our paper/code useful, please consider citing our work:
+```
+@misc{ding2024largescalecrossmodalitypretrainedmodel,
+      title={Large-scale cross-modality pretrained model enhances cardiovascular state estimation and cardiomyopathy detection from electrocardiograms: An AI system development and multi-center validation study}, 
+      author={Zhengyao Ding and Yujian Hu and Youyao Xu and Chengchen Zhao and Ziyu Li and Yiheng Mao and Haitao Li and Qian Li and Jing Wang and Yue Chen and Mengjia Chen and Longbo Wang and Xuesen Chu and Weichao Pan and Ziyi Liu and Fei Wu and Hongkun Zhang and Ting Chen and Zhengxing Huang},
+      year={2024},
+      eprint={2411.13602},
+      archivePrefix={arXiv},
+      primaryClass={eess.IV},
+      url={https://arxiv.org/abs/2411.13602}, 
+}
+```
