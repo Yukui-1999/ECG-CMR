@@ -1,0 +1,73 @@
+
+# Devices: &Devices 4
+# Num_Nodes: &Num_Nodes 1
+# Frames: &Frames 16
+# InFrames: &InFrames 16
+# Resolution: &Resolution 256
+# Fps: &Fps 16
+# Image_log_every: &Image_log_every 1000
+# Ckpt_log_every: &Ckpt_log_every 500
+# Warm_steps: &Warm_steps 0
+# Warm_min_lr_disc: &Warm_min_lr_disc 1e-8
+# Warm_min_lr: &Warm_min_lr 1e-6
+# Batch_size: &Batch_size 4
+# Data_Dir: &Data_Dir /data/internal_data
+# Metadata_Dir: &Metadata_Dir  /data/internal_data
+# Metadata_Folder: &Metadata_Folder "meta_data"
+
+model:
+  # base_learning_rate: 2e-5
+  # target: models.vae3d.ReducioVAE
+  params:
+    embed_dim: 16
+
+    lossconfig:
+      target: ldm.modules.losses.contperceptual.LPIPSWithDiscriminator
+      params:
+        disc_start: 10001
+        kl_weight: 1e-6
+        disc_weight: 0.05
+        use_adaptive_gan: True
+        enable_2d: False # 没有这个就没有fuse
+        rec_weight: 1.0 
+        loss_norm: 'l1'
+        perceptual_weight: 0.1
+        disc_loss_scale: 0.1
+        use_groupnorm: False
+        act_tanh: False
+
+    ddconfig_2d:
+      ch: 128
+      z_channels: 4
+      out_ch: 1
+      resolution: 96
+      in_channels: 1
+      ch_mult: [ 1,2,4,4 ] 
+      num_res_blocks: 2
+      attn_resolutions: []
+      dropout: 0.0
+      out_z: False
+      use_checkpoint: True
+      fp32_attention: True
+    
+    ddconfig:
+      ch: 128
+      ch_in: 128
+      f_t: 1 # 这个是下采样的次数 不是倍数
+      out_ch: 1
+      z_channels: 16
+      resolution: 96
+      in_channels: 1
+      temp_res: 50
+      ch_mult: [ 1,2,4,4]
+      ch_fuse: [-1,-1,-1,-1] 
+      fuse_type: 'attn'
+      num_res_blocks: 2
+      attn_resolutions: []
+      use_3d_conv: True
+      upsample_first: True
+      fuse_mid: True
+      use_checkpoint: True
+      pos_embed_mode: 't'
+      fp32_attention: True
+      window_size: 128

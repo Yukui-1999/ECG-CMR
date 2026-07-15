@@ -1,0 +1,14 @@
+encoder_path: /home/liziyu/CMRGEN/ECGCMR/st_mem_vit_base_encoder.pth
+afterAlign_path: "/mnt/sda1/dingzhengyao/Work/ECG_CMR_CardioNets_v1/ECG_CMR_align/ECG_STME_CMR_base_bs256_lr0.001_optadamw_clip0.05_seed42/best-loss.pth"
+model_name: st_mem_vit_base
+mode: scratch
+
+
+model:
+  seq_len: 2250
+  patch_size: 75
+  num_leads: 12
+  num_classes: 1
+  pred_metric: False
+
+

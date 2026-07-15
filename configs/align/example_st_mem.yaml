@@ -1,0 +1,11 @@
+model_name: st_mem_vit_base
+mode: finetune
+
+
+model:
+  seq_len: 2250
+  patch_size: 75
+  num_leads: 12
+  num_classes: 3
+
+

@@ -1,0 +1,13 @@
+encoder_path: /mnt/sda1/dingzhengyao/Work/ECG_CMR_CardioNets_v1/ECG_CMR_yingguo_Reg/ECG_STME_CMR_base_Reg_scratch_with_phensup_bs128_lr5e-5_seed42_ECGmodescratch/best-r2.pth
+model_name: st_mem_vit_base
+mode: pretrain
+
+
+model:
+  seq_len: 2250
+  patch_size: 75
+  num_leads: 12
+  num_classes: 1
+  pred_metric: False
+
+
