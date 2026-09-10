@@ -31,8 +31,7 @@ Here is the example data, weights, and example run code for the two tasks of Car
 
 ### A. ECG2CMR autoregression generative model
 
-The model weights can be accessed from the following OneDrive folder:
-![OneDriveLink](ModelWeightLinkofOnedrive.png)
+In accordance with the interim guidance provided by UK Biobank, the pretrained weights of our generative model are treated as individual-level data and cannot be shared, publicly released, or exported from the UK Biobank Research Analysis Platform (UKB-RAP). We have therefore removed the download link. For enquiries regarding these restrictions and permitted research use, please contact zhengyao.ding@zju.edu.cn.
 The folder **generation** contains the following files:
 
 * **checkpoint-0004.pth** (Autoencoder(VAE) weights, to compress CMR to latent space)
